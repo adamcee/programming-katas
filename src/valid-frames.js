@@ -1,4 +1,4 @@
-// integer-frames.js
+// Contains static data structures representing all valid frames
 const {
     PIPE,
     SPACE,
@@ -9,9 +9,7 @@ const {
  * Terminology
  * -----------
  *  - "Frame"
- *      - We are scanning 4 lines of OCR text. The text has pipes,
- *      underscores, and whitespace. These characters are used to represent integers (0 and positive ints).
- *
+ *      - We are scanning 4 lines of OCR text. The text has pipes, *      underscores, and whitespace. These characters are used to represent integers (0 and positive ints).  *
  *      - Each line of OCR text has a "height" of 3 chars.
  *
  *      - Any int can be represented by an OCR "frame" of width 3 chars and height 3 chars. Each line of OCR text is composed of frames, one single frame per potential integer representation (a misspelled OCR number is not a valid integer but still fits within a frame - thus, "potential integer representation").
@@ -66,6 +64,8 @@ Note how the *first* row is "above" the number itself. This is because the first
  *
  *
  */
+
+/*************** Actual Valid Frame Data *****************/
 
 /*
  * OCR representation of 0.

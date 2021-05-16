@@ -1,11 +1,11 @@
-const { ZERO } = require('./integer-frames.js');
+const { ZERO } = require('./valid-frames.js');
 const {
     PIPE,
     SPACE,
     UNDERSCORE
 } = require('./ocr-characters.js');
 
-const { isZero } = require('./integer-frame-comparisons.js');
+const { isZero } = require('./frame-comparisons.js');
 
 /**
  * TESTS
