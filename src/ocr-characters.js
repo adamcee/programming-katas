@@ -7,9 +7,6 @@ const PIPE = '|'; // pipe
 const SPACE = ' '; // whitespace
 const UNDERSCORE = '_'; // underscore
 
-console.log('Sanity check for char consts:'); // TODO delete
-[SPACE, PIPE, UNDERSCORE].forEach(c => console.log(c));
-
 module.exports = {
     PIPE,
     SPACE,
