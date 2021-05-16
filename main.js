@@ -73,9 +73,52 @@ const UNDERSCORE = '_'; // underscore
 console.log('Sanity check for char consts:'); // TODO delete
 [SPACE, PIPE, UNDERSCORE].forEach(c => console.log(c));
 
+/*
+ * OCR representation of 0.
+ *
+ _
+| |
+|_|
 
-/**
- * Functions to check if an OCR'd frame is some given integer
+*/
+const ZERO = [
+    [SPACE, UNDERSCORE, SPACE],
+    [PIPE, SPACE, PIPE],
+    [PIPE, UNDERSCORE, SPACE],
+];
+
+console.log('ZERO IS ', JSON.stringify(ZERO));
+/*
+ * isZero
+ * Returns true if the frame represents the integer 0, false if not.
+ * @param  {Frame} frame
+ *         Frame of OCR data.
+ * @return {Boolean}
+ *         Returns true if our OCR equals ZERO
  */
 function isZero(frame) {
+    return JSON.stringify(frame) === JSON.stringify(ZERO)
 }
+
+/**
+ * TESTS
+ * TODO: Once prototyping is done write real unit tests. For now this is fine.
+ */
+
+/**
+ * isZero()
+ */
+const frameIsZero = [
+    [SPACE, UNDERSCORE, SPACE],
+    [PIPE, SPACE, PIPE],
+    [PIPE, UNDERSCORE, SPACE],
+];
+
+const frameNotZero = [
+    [SPACE, SPACE, SPACE],
+    [PIPE, SPACE, PIPE],
+    [PIPE, UNDERSCORE, SPACE],
+];
+
+console.log('isZero identifies positive - expect true', isZero(frameIsZero));
+console.log('isZero identifies negative - expect false', isZero(frameNotZero));
