@@ -1,4 +1,9 @@
-console.log('hello world'); // TODO - delete
+// integer-frames.js
+const {
+    PIPE,
+    SPACE,
+    UNDERSCORE
+} = require('./ocr-characters.js');
 
 /***
  * Terminology
@@ -35,6 +40,7 @@ Note that there is leading whitespace in the frame representing the integer 1! 1
 BE MINDFUL OF THIS WHEN 1 IS THE LEADING INTEGER.
  */
 
+
 /**
  * Data Structures
  * --------------
@@ -62,18 +68,6 @@ Note how the *first* row is "above" the number itself. This is because the first
  */
 
 /*
- * Characters used in our OCR representation
- * IMPORTANT: Be sure to always use getters/setters. We don't want to directly compare against the value of the const to make it easier to replace with a Symbol or integer representation later on.
- * NOTE: Move to new file if this file has gotten big/complex.
- */
-const SPACE = ' '; // whitespace
-const PIPE = '|'; // pipe
-const UNDERSCORE = '_'; // underscore
-
-console.log('Sanity check for char consts:'); // TODO delete
-[SPACE, PIPE, UNDERSCORE].forEach(c => console.log(c));
-
-/*
  * OCR representation of 0.
  *
  _
@@ -87,63 +81,6 @@ const ZERO = [
     [PIPE, UNDERSCORE, SPACE],
 ];
 
-console.log('ZERO IS ', JSON.stringify(ZERO));
-
-/*
- * isInteger
- * Returns true if the frame represents some integer, false if not.
- * NOTE: We should not access this directly, but write wrappers for it.
- *
- * @param  {Frame} frame
- *         Frame of OCR data.
- * @param  {IntegerFrame} integerFrame
- *         Valid Frame of OCR data representing our integer. We compare the input frame
- *         against this valid frame..
- * @return {Boolean}
- *         Returns true if our OCR equals validFrame
- */
-function isInteger(frame, integerFrame) {
-    return JSON.stringify(frame) === JSON.stringify(integerFrame)
-}
-
-/*
- * isZero
- * Returns true if the frame represents the integer 0, false if not.
- * @param  {Frame} frame
- *         Frame of OCR data.
- * @return {Boolean}
- *         Returns true if our OCR equals ZERO
- */
-function isZero(frame) {
-    return isInteger(frame, ZERO);
-}
-
-/**
- * TESTS
- * TODO: Once prototyping is done write real unit tests. For now this is fine.
- */
-
-/**
- * isZero()
- */
-function testComparisonFunction(comparisonFunction, goodFrame, badFrame) {
-    console.log(`${comparisonFunction.name} identifies positive - expect true`, comparisonFunction(goodFrame));
-    console.log(`${comparisonFunction.name} identifies negative - expect false`, comparisonFunction(badFrame));
-}
-
-testComparisonFunction(
-    isZero,
-    // good
-    [
-        [SPACE, UNDERSCORE, SPACE],
-        [PIPE, SPACE, PIPE],
-        [PIPE, UNDERSCORE, SPACE],
-    ],
-    // bad
-    [
-        [SPACE, SPACE, SPACE],
-        [PIPE, SPACE, PIPE],
-        [PIPE, UNDERSCORE, SPACE],
-    ],
-
-);
+module.exports = {
+    ZERO,
+};
