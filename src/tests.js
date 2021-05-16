@@ -1,11 +1,18 @@
-const { ZERO } = require('./valid-frames.js');
+const {
+    ONE,
+    ZERO,
+} = require('./valid-frames.js');
+
 const {
     PIPE,
     SPACE,
     UNDERSCORE
 } = require('./ocr-characters.js');
 
-const { isZero } = require('./frame-comparisons.js');
+const {
+    isOne,
+    isZero,
+} = require('./frame-comparisons.js');
 
 /**
  * TESTS
@@ -32,6 +39,23 @@ testComparisonFunction(
     [
         [SPACE, SPACE, SPACE],
         [PIPE, SPACE, PIPE],
+        [PIPE, UNDERSCORE, SPACE],
+    ],
+
+);
+
+testComparisonFunction(
+    isOne,
+    // good
+    [
+        [SPACE, SPACE, SPACE],
+        [SPACE, SPACE, PIPE],
+        [SPACE, SPACE, PIPE],
+    ],
+    // bad
+    [
+        [SPACE, SPACE, SPACE],
+        [SPACE, SPACE, PIPE],
         [PIPE, UNDERSCORE, SPACE],
     ],
 

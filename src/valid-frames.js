@@ -66,6 +66,8 @@ Note how the *first* row is "above" the number itself. This is because the first
  */
 
 /*************** Actual Valid Frame Data *****************/
+// IMPORTANT: All visual representations of OCR data start from the
+// left edge of the screen - any whitespace IS intentional.
 
 /*
  * OCR representation of 0.
@@ -81,6 +83,24 @@ const ZERO = [
     [PIPE, UNDERSCORE, SPACE],
 ];
 
+/*
+ * OCR representation of 1.
+ * Note that we only use 2 pipes.
+ * IMPORTANT: Note that there are 2 leading WHITESPACE characters.
+ * The frame itself *still has the standard width of 3 chars*.
+ *
+
+  |
+  |
+
+*/
+const ONE = [
+    [SPACE, SPACE, SPACE],
+    [SPACE, SPACE, PIPE],
+    [SPACE, SPACE, PIPE],
+];
+
 module.exports = {
     ZERO,
+    ONE,
 };
