@@ -126,17 +126,24 @@ function isZero(frame) {
 /**
  * isZero()
  */
-const frameIsZero = [
-    [SPACE, UNDERSCORE, SPACE],
-    [PIPE, SPACE, PIPE],
-    [PIPE, UNDERSCORE, SPACE],
-];
+function testComparisonFunction(comparisonFunction, goodFrame, badFrame) {
+    console.log(`${comparisonFunction.name} identifies positive - expect true`, comparisonFunction(goodFrame));
+    console.log(`${comparisonFunction.name} identifies negative - expect false`, comparisonFunction(badFrame));
+}
 
-const frameNotZero = [
-    [SPACE, SPACE, SPACE],
-    [PIPE, SPACE, PIPE],
-    [PIPE, UNDERSCORE, SPACE],
-];
+testComparisonFunction(
+    isZero,
+    // good
+    [
+        [SPACE, UNDERSCORE, SPACE],
+        [PIPE, SPACE, PIPE],
+        [PIPE, UNDERSCORE, SPACE],
+    ],
+    // bad
+    [
+        [SPACE, SPACE, SPACE],
+        [PIPE, SPACE, PIPE],
+        [PIPE, UNDERSCORE, SPACE],
+    ],
 
-console.log('isZero identifies positive - expect true', isZero(frameIsZero));
-console.log('isZero identifies negative - expect false', isZero(frameNotZero));
+);
