@@ -39,32 +39,6 @@ function isZero(frame) {
     return isInteger(frame, ZERO);
 }
 
-/**
- * TESTS
- * TODO: Once prototyping is done write real unit tests. For now this is fine.
- */
-
-/**
- * isZero()
- */
-function testComparisonFunction(comparisonFunction, goodFrame, badFrame) {
-    console.log(`${comparisonFunction.name} identifies positive - expect true`, comparisonFunction(goodFrame));
-    console.log(`${comparisonFunction.name} identifies negative - expect false`, comparisonFunction(badFrame));
-}
-
-testComparisonFunction(
+module.exports = {
     isZero,
-    // good
-    [
-        [SPACE, UNDERSCORE, SPACE],
-        [PIPE, SPACE, PIPE],
-        [PIPE, UNDERSCORE, SPACE],
-    ],
-    // bad
-    [
-        [SPACE, SPACE, SPACE],
-        [PIPE, SPACE, PIPE],
-        [PIPE, UNDERSCORE, SPACE],
-    ],
-
-);
+};
