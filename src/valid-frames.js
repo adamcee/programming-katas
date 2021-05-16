@@ -142,8 +142,8 @@ const TWO = [
 */
 const THREE = [
     [SPACE, UNDERSCORE, SPACE],
-    [PIPE, SPACE, PIPE],
-    [PIPE, UNDERSCORE, SPACE],
+    [SPACE, UNDERSCORE, PIPE],
+    [SPACE, UNDERSCORE, PIPE],
 ];
 
 /*

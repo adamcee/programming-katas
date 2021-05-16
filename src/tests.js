@@ -5,9 +5,10 @@ const {
 } = require('./ocr-characters.js');
 
 const {
+    isZero,
     isOne,
     isTwo,
-    isZero,
+    isThree,
 } = require('./frame-comparisons.js');
 
 /**
@@ -19,8 +20,25 @@ const {
  * isZero()
  */
 function testComparisonFunction(comparisonFunction, goodFrame, badFrame) {
-    console.log(`${comparisonFunction.name} identifies positive - expect true`, comparisonFunction(goodFrame));
-    console.log(`${comparisonFunction.name} identifies negative - expect false`, comparisonFunction(badFrame));
+    console.log(' '); // newline
+
+    // Expect true
+    const goodFrameMatch = comparisonFunction(goodFrame);
+
+    console.log(`${comparisonFunction.name} identifies matching frame: `, goodFrameMatch);
+
+    if (!goodFrameMatch) {
+        console.log('-- ERROR -- failed to match correct frame.');
+    }
+
+    // Expect false (we flip to true for test readability purposes).
+    const badFrameCatch = !comparisonFunction(badFrame);
+
+    console.log(`${comparisonFunction.name} fails identification for non-matching frame: `, badFrameCatch);
+
+    if (!badFrameCatch) {
+        console.log('-- ERROR -- failed to catch bad frame.');
+    }
 }
 
 testComparisonFunction(
@@ -64,6 +82,23 @@ testComparisonFunction(
         [SPACE, UNDERSCORE, SPACE],
         [SPACE, UNDERSCORE, PIPE],
         [PIPE, UNDERSCORE, SPACE],
+    ],
+    // bad
+    [
+        [SPACE, SPACE, SPACE],
+        [SPACE, SPACE, PIPE],
+        [PIPE, UNDERSCORE, SPACE],
+    ],
+
+);
+
+testComparisonFunction(
+    isThree,
+    // good
+    [
+        [SPACE, UNDERSCORE, SPACE],
+        [SPACE, UNDERSCORE, PIPE],
+        [SPACE, UNDERSCORE, PIPE],
     ],
     // bad
     [
