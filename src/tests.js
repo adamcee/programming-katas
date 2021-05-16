@@ -1,9 +1,4 @@
 const {
-    ONE,
-    ZERO,
-} = require('./valid-frames.js');
-
-const {
     PIPE,
     SPACE,
     UNDERSCORE
@@ -11,6 +6,7 @@ const {
 
 const {
     isOne,
+    isTwo,
     isZero,
 } = require('./frame-comparisons.js');
 
@@ -51,6 +47,23 @@ testComparisonFunction(
         [SPACE, SPACE, SPACE],
         [SPACE, SPACE, PIPE],
         [SPACE, SPACE, PIPE],
+    ],
+    // bad
+    [
+        [SPACE, SPACE, SPACE],
+        [SPACE, SPACE, PIPE],
+        [PIPE, UNDERSCORE, SPACE],
+    ],
+
+);
+
+testComparisonFunction(
+    isTwo,
+    // good
+    [
+        [SPACE, UNDERSCORE, SPACE],
+        [SPACE, UNDERSCORE, PIPE],
+        [PIPE, UNDERSCORE, SPACE],
     ],
     // bad
     [

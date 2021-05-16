@@ -1,4 +1,5 @@
 // Contains static data structures representing all valid frames
+
 const {
     PIPE,
     SPACE,
@@ -20,18 +21,32 @@ const {
  *
  * Example:
  * Here is a line of OCR text, representing integers 490067715.
+```
     _  _  _  _  _  _     _
 |_||_|| || ||_   |  |  ||_
   | _||_||_||_|  |  |  | _|
+```
+
 
 It's first frame represents the integer 4:
+```
 |_|
   |
+```
 
 It's second frame represents the integer 9:
+```
  _
 |_|
  _|
+```
+
+Here are the integers 0-9. NOTE THE LEADING WHITESPACE FOR 1:
+```
+    _  _     _  _  _  _  _
+  | _| _||_||_ |_   ||_||_|
+  ||_  _|  | _||_|  ||_| _|
+```
 
 IMPORTANT:
 Note that there is leading whitespace in the frame representing the integer 1! 1 takes up a single frame, just like the other integers.
@@ -89,9 +104,11 @@ const ZERO = [
  * IMPORTANT: Note that there are 2 leading WHITESPACE characters.
  * The frame itself *still has the standard width of 3 chars*.
  *
+```
 
   |
   |
+```
 
 */
 const ONE = [
@@ -100,7 +117,135 @@ const ONE = [
     [SPACE, SPACE, PIPE],
 ];
 
+/*
+ * OCR representation of 2.
+ *
+```
+ _
+ _|
+|_
+```
+*/
+const TWO = [
+    [SPACE, UNDERSCORE, SPACE],
+    [SPACE, UNDERSCORE, PIPE],
+    [PIPE, UNDERSCORE, SPACE],
+];
+
+/*
+ * OCR representation of 3.
+```
+ _
+ _|
+ _|
+```
+*/
+const THREE = [
+    [SPACE, UNDERSCORE, SPACE],
+    [PIPE, SPACE, PIPE],
+    [PIPE, UNDERSCORE, SPACE],
+];
+
+/*
+ * OCR representation of 4.
+ *
+```
+
+|_|
+  |
+```
+*/
+const FOUR = [
+    [SPACE, UNDERSCORE, SPACE],
+    [PIPE, SPACE, PIPE],
+    [PIPE, UNDERSCORE, SPACE],
+];
+
+/*
+ * OCR representation of 5.
+ *
+```
+ _
+|_
+ _|
+ ```
+*/
+const FIVE = [
+    [SPACE, UNDERSCORE, SPACE],
+    [PIPE, SPACE, PIPE],
+    [PIPE, UNDERSCORE, SPACE],
+];
+
+/*
+ * OCR representation of 6.
+ *
+```
+ _
+|_
+|_|
+```
+*/
+const SIX = [
+    [SPACE, UNDERSCORE, SPACE],
+    [PIPE, SPACE, PIPE],
+    [PIPE, UNDERSCORE, SPACE],
+];
+
+/*
+ * OCR representation of 7.
+ *
+```
+ _
+  |
+  |
+```
+*/
+const SEVEN = [
+    [SPACE, UNDERSCORE, SPACE],
+    [PIPE, SPACE, PIPE],
+    [PIPE, UNDERSCORE, SPACE],
+];
+
+/*
+ * OCR representation of 8.
+ *
+```
+ _
+|_|
+|_|
+```
+
+*/
+const EIGHT = [
+    [SPACE, UNDERSCORE, SPACE],
+    [PIPE, SPACE, PIPE],
+    [PIPE, UNDERSCORE, SPACE],
+];
+
+/*
+ * OCR representation of 9.
+ *
+```
+ _
+|_|
+ _|
+```
+*/
+const NINE = [
+    [SPACE, UNDERSCORE, SPACE],
+    [PIPE, SPACE, PIPE],
+    [PIPE, UNDERSCORE, SPACE],
+];
+
 module.exports = {
     ZERO,
     ONE,
+    TWO,
+    THREE,
+    FOUR,
+    FIVE,
+    SIX,
+    SEVEN,
+    EIGHT,
+    NINE,
 };

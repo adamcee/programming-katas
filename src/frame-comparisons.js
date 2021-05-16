@@ -1,5 +1,6 @@
 const {
     ONE,
+    TWO,
     ZERO,
 } = require('./valid-frames.js');
 
@@ -21,7 +22,6 @@ function isValidFrameFor(frame, validFrame) {
 
 /*
  * isOne
- * Returns true if the frame represents the integer 1, false if not.
  * @param  {Frame} frame
  *         Frame of OCR data.
  * @return {Boolean}
@@ -32,8 +32,18 @@ function isOne(frame) {
 }
 
 /*
+ * isTwo
+ * @param  {Frame} frame
+ *         Frame of OCR data.
+ * @return {Boolean}
+ *         Returns true if our OCR equals ONE
+ */
+function isTwo(frame) {
+    return isValidFrameFor(frame, TWO);
+}
+
+/*
  * isZero
- * Returns true if the frame represents the integer 0, false if not.
  * @param  {Frame} frame
  *         Frame of OCR data.
  * @return {Boolean}
@@ -46,5 +56,6 @@ function isZero(frame) {
 
 module.exports = {
     isOne,
+    isTwo,
     isZero,
 };
