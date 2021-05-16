@@ -172,8 +172,8 @@ const FOUR = [
 */
 const FIVE = [
     [SPACE, UNDERSCORE, SPACE],
-    [PIPE, SPACE, PIPE],
     [PIPE, UNDERSCORE, SPACE],
+    [SPACE, UNDERSCORE, PIPE],
 ];
 
 /*
