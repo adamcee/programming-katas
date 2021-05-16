@@ -38,7 +38,7 @@ BE MINDFUL OF THIS WHEN 1 IS THE LEADING INTEGER.
 /**
  * Data Structures
  * --------------
- *  Let's represent an OCR'd frame in memory using an array of arrays.
+ *  Let's represent an OCR'd frame in memory using a rectangular array (an array of arrays where each array is the same length).
  *  The parent array contains a child array for each row of OCR'd characters in our frame, from top to bottom.
  *
 This frame represents the integer 4:
