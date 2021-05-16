@@ -31,9 +31,6 @@ function testComparisonFunction(comparisonFunction, goodFrame, badFrame) {
     );
     console.log('');
 
-
-
-
     // Expect true
     const goodFrameMatch = comparisonFunction(goodFrame);
 
