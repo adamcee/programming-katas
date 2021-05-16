@@ -56,7 +56,7 @@ testComparisonFunction(
     [
         [SPACE, UNDERSCORE, SPACE],
         [PIPE, SPACE, PIPE],
-        [PIPE, UNDERSCORE, SPACE],
+        [PIPE, UNDERSCORE, PIPE],
     ],
     // bad
     [

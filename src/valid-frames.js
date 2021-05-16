@@ -95,7 +95,7 @@ Note how the *first* row is "above" the number itself. This is because the first
 const ZERO = [
     [SPACE, UNDERSCORE, SPACE],
     [PIPE, SPACE, PIPE],
-    [PIPE, UNDERSCORE, SPACE],
+    [PIPE, UNDERSCORE, PIPE],
 ];
 
 /*
