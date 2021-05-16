@@ -156,9 +156,9 @@ const THREE = [
 ```
 */
 const FOUR = [
-    [SPACE, UNDERSCORE, SPACE],
-    [PIPE, SPACE, PIPE],
-    [PIPE, UNDERSCORE, SPACE],
+    [SPACE, SPACE, SPACE],
+    [PIPE, UNDERSCORE, PIPE],
+    [SPACE, SPACE, PIPE],
 ];
 
 /*
