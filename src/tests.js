@@ -5,7 +5,7 @@ const {
     UNDERSCORE
 } = require('./ocr-characters.js');
 
-const { isZero } = require('./index.js');
+const { isZero } = require('./integer-frame-comparisons.js');
 
 /**
  * TESTS
