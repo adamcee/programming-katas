@@ -21,7 +21,18 @@ const {
  * isZero()
  */
 function testComparisonFunction(comparisonFunction, goodFrame, badFrame) {
-    console.log(' '); // newline
+    console.log('---'); // newline
+
+    // Sanity check - that goodFrame looks as expected, which helps
+    // ensure correct data.
+    console.log('Test matching on: ');
+    goodFrame.forEach(row =>
+        console.log(row.join(""))
+    );
+    console.log('');
+
+
+
 
     // Expect true
     const goodFrameMatch = comparisonFunction(goodFrame);
