@@ -14,10 +14,56 @@ console.log('hello world'); // TODO - delete
  *      - We will represent the OCR'd frame in memory with a data structure (probably arrays). **This will also be called a frame**.
  *
  *      - Thus, the term "frame" can be used both to refer to the raw OCR data and it's representation in memory.
+ *
+ * Example:
+ * Here is a line of OCR text, representing integers 490067715.
+    _  _  _  _  _  _     _
+|_||_|| || ||_   |  |  ||_
+  | _||_||_||_|  |  |  | _|
+
+It's first frame represents the integer 4:
+|_|
+  |
+
+It's second frame represents the integer 9:
+ _
+|_|
+ _|
+
+IMPORTANT:
+Note that there is leading whitespace in the frame representing the integer 1! 1 takes up a single frame, just like the other integers.
+BE MINDFUL OF THIS WHEN 1 IS THE LEADING INTEGER.
+ */
+
+/**
+ * Data Structures
+ * --------------
+ *  Let's represent an OCR'd frame in memory using an array of arrays.
+ *  The parent array contains a child array for each row of OCR'd characters in our frame, from top to bottom.
+ *
+This frame represents the integer 4:
+
+|_|
+  |
+
+We will use consts to represent each individual character. We'll start by having the value of the const be the actual character, for simplicty and to help with debugging. Later if we need to switch to Symbols or integer representations for performance reasons (or whatever), it'll be easy to do so.
+
+Our array representing the above OCR frame will look like this:
+[
+    [SPACE, SPACE, SPACE],
+    [PIPE, UNDERSCORE, PIPE],
+    [SPACE, SPACE, PIPE],
+]
+
+IMPORTANT:
+Note how the *first* row is "above" the number itself. This is because the first row is actually for any underscores which form the "top" of our number. Underscores "in the middle" of the number (like with 4 or 8) are in our second row, and underscores "on the bottom (like with 6 or 8) are in our third row. Hope that makes sense : )
+ *
+ *
  */
 
 /*
  * Characters used in our OCR representation
+ * IMPORTANT: Be sure to always use getters/setters. We don't want to directly compare against the value of the const to make it easier to replace with a Symbol or integer representation later on.
  * NOTE: Move to new file if this file has gotten big/complex.
  */
 const SPACE = ' '; // whitespace
@@ -26,6 +72,7 @@ const UNDERSCORE = '_'; // underscore
 
 console.log('Sanity check for char consts:'); // TODO delete
 [SPACE, PIPE, UNDERSCORE].forEach(c => console.log(c));
+
 
 /**
  * Functions to check if an OCR'd frame is some given integer
