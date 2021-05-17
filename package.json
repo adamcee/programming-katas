@@ -1,0 +1,20 @@
+{
+  "name": "bank-ocr-kata",
+  "version": "0.1.0",
+  "description": "Bank OCR Kata",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node run-tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamcee/programming-katas.git"
+  },
+  "author": "adam.cahan@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adamcee/programming-katas/issues"
+  },
+  "homepage": "https://github.com/adamcee/programming-katas#readme"
+}
