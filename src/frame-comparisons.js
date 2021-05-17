@@ -6,7 +6,7 @@ const {
     FOUR,
     FIVE,
     SIX,
-    //SEVEN,
+    SEVEN,
     //EIGHT,
     //NINE,
 } = require('./valid-frames.js');
@@ -99,6 +99,16 @@ function isSix(frame) {
     return isValidFrameFor(frame, SIX);
 }
 
+/*
+ * @param  {Frame} frame
+ *         Frame of OCR data.
+ * @return {Boolean}
+ *         Returns true if our OCR equals SEVEN
+ */
+function isSeven(frame) {
+    return isValidFrameFor(frame, SEVEN);
+}
+
 module.exports = {
     isZero,
     isOne,
@@ -107,7 +117,7 @@ module.exports = {
     isFour,
     isFive,
     isSix,
-    //isSeven,
+    isSeven,
     //isEight,
     //isNine,
 };

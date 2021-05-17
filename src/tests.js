@@ -12,7 +12,7 @@ const {
     isFour,
     isFive,
     isSix,
-    //isSeven,
+    isSeven,
     //isEight,
     //isNine,
 } = require('./frame-comparisons.js');
@@ -170,14 +170,13 @@ testComparisonFunction(
     ],
 );
 
-/**
 testComparisonFunction(
     isSeven,
     // good
     [
         [SPACE, UNDERSCORE, SPACE],
-        [PIPE, UNDERSCORE, SPACE],
-        [PIPE, UNDERSCORE, PIPE],
+        [SPACE, SPACE, PIPE],
+        [SPACE, SPACE, PIPE],
     ],
     // bad
     [
@@ -187,6 +186,7 @@ testComparisonFunction(
     ],
 );
 
+/**
 testComparisonFunction(
     isEight,
     // good

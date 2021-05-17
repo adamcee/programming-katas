@@ -202,8 +202,8 @@ const SIX = [
 */
 const SEVEN = [
     [SPACE, UNDERSCORE, SPACE],
-    [PIPE, SPACE, PIPE],
-    [PIPE, UNDERSCORE, SPACE],
+    [SPACE, SPACE, PIPE],
+    [SPACE, SPACE, PIPE],
 ];
 
 /*
@@ -218,8 +218,8 @@ const SEVEN = [
 */
 const EIGHT = [
     [SPACE, UNDERSCORE, SPACE],
-    [PIPE, SPACE, PIPE],
-    [PIPE, UNDERSCORE, SPACE],
+    [PIPE, UNDERSCORE, PIPE],
+    [PIPE, UNDERSCORE, PIPE],
 ];
 
 /*
@@ -233,8 +233,8 @@ const EIGHT = [
 */
 const NINE = [
     [SPACE, UNDERSCORE, SPACE],
-    [PIPE, SPACE, PIPE],
-    [PIPE, UNDERSCORE, SPACE],
+    [PIPE, UNDERSCORE, PIPE],
+    [SPACE, UNDERSCORE, PIPE],
 ];
 
 module.exports = {
@@ -245,7 +245,7 @@ module.exports = {
     FOUR,
     FIVE,
     SIX,
-    //SEVEN,
+    SEVEN,
     //EIGHT,
     //NINE,
 };
