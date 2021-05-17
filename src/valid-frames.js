@@ -246,6 +246,6 @@ module.exports = {
     FIVE,
     SIX,
     SEVEN,
-    //EIGHT,
+    EIGHT,
     //NINE,
 };
