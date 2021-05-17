@@ -9,4 +9,10 @@ If you know what you are doing, feel free to use your node.js version/JS runtime
 
 I recommend using [entr](http://eradman.com/entrproject/) for quick and easy test-running/re-running-code-on-file-change during development.
 
+This lets you do something like:
+```
+find *  | entr npm test
+```
+and your tests will re-run on any file change.
+
 
