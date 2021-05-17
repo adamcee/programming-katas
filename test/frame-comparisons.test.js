@@ -2,7 +2,7 @@ const {
     PIPE,
     SPACE,
     UNDERSCORE
-} = require('./ocr-characters.js');
+} = require('../src/ocr-characters.js');
 
 const {
     isZero,
@@ -15,7 +15,7 @@ const {
     isSeven,
     isEight,
     isNine,
-} = require('./frame-comparisons.js');
+} = require('../src/frame-comparisons.js');
 
 /**
  * TESTS
