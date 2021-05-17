@@ -11,6 +11,10 @@ const {
     isThree,
     isFour,
     isFive,
+    isSix,
+    //isSeven,
+    //isEight,
+    //isNine,
 } = require('./frame-comparisons.js');
 
 /**
@@ -149,3 +153,63 @@ testComparisonFunction(
         [PIPE, UNDERSCORE, SPACE],
     ],
 );
+
+testComparisonFunction(
+    isSix,
+    // good
+    [
+        [SPACE, UNDERSCORE, SPACE],
+        [PIPE, UNDERSCORE, SPACE],
+        [PIPE, UNDERSCORE, PIPE],
+    ],
+    // bad
+    [
+        [SPACE, SPACE, SPACE],
+        [SPACE, SPACE, PIPE],
+        [PIPE, UNDERSCORE, SPACE],
+    ],
+);
+
+/**
+testComparisonFunction(
+    isSeven,
+    // good
+    [
+        [SPACE, UNDERSCORE, SPACE],
+        [PIPE, UNDERSCORE, SPACE],
+        [PIPE, UNDERSCORE, PIPE],
+    ],
+    // bad
+    [
+        [SPACE, SPACE, SPACE],
+        [SPACE, SPACE, PIPE],
+        [PIPE, UNDERSCORE, SPACE],
+    ],
+);
+
+testComparisonFunction(
+    isEight,
+    // good
+    [
+    ],
+    // bad
+    [
+        [SPACE, SPACE, SPACE],
+        [SPACE, SPACE, PIPE],
+        [PIPE, UNDERSCORE, SPACE],
+    ],
+);
+
+testComparisonFunction(
+    isNine,
+    // good
+    [
+    ],
+    // bad
+    [
+        [SPACE, SPACE, SPACE],
+        [SPACE, SPACE, PIPE],
+        [PIPE, UNDERSCORE, SPACE],
+    ],
+);
+ **/

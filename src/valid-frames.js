@@ -187,8 +187,8 @@ const FIVE = [
 */
 const SIX = [
     [SPACE, UNDERSCORE, SPACE],
-    [PIPE, SPACE, PIPE],
     [PIPE, UNDERSCORE, SPACE],
+    [PIPE, UNDERSCORE, PIPE],
 ];
 
 /*
@@ -245,7 +245,7 @@ module.exports = {
     FOUR,
     FIVE,
     SIX,
-    SEVEN,
-    EIGHT,
-    NINE,
+    //SEVEN,
+    //EIGHT,
+    //NINE,
 };
