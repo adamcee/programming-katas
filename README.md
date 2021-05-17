@@ -15,4 +15,13 @@ find *  | entr npm test
 ```
 and your tests will re-run on any file change.
 
+## Running the application
+```
+npm start
+```
+
+## Running tests
+```
+npm test
+```
 
