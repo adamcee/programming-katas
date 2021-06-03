@@ -24,10 +24,6 @@ const {
  *         Returns true if our OCR equals validFrame
  */
 function isValidFrameFor(frame, validFrame) {
-    console.log('frame:');
-    console.log(frame);
-    console.log('validFrame:');
-    console.log(validFrame);
     return JSON.stringify(frame) === JSON.stringify(validFrame)
 }
 

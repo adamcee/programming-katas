@@ -1,4 +1,5 @@
 fs = require('fs');
+
 const {
     isZero,
     isOne,
@@ -10,23 +11,20 @@ const {
     isSeven,
     isEight,
     isNine,
-} = require('../src/frame-comparisons.js');
+} = require('./frame-comparisons.js');
+
+const {
+    chunkEntryIntoFrames,
+} = require('./entry-handler.js');
 
 const DATA_DIR = './data/'
 const VALID_DATA_DIR = `${DATA_DIR}valid/`;
 
-/**
- * THIS FUNCTION HAS DESTRUCTIVE SIDE EFFECTS on `entry`.
- *
- * @param {Entry} entry
- * @return {Frame}
- *         Get a frame (3x3 array of characters) from our rows of data
- */
-function spliceLeadingFrame(entry) {
-    return entry.map(row => row.splice(0,3));
+// Helper method. Nicely display a frame.
+function displayFrame(frame){
+    frame.forEach(row => console.log(row));
+    console.log(''); // empty line
 }
-
-const NUM_FRAMES_IN_ENTRY = 9;
 
 fs.readFile(`${VALID_DATA_DIR}single-entry.txt`, 'utf8', (error, data) => {
     if(error) {
@@ -42,14 +40,7 @@ fs.readFile(`${VALID_DATA_DIR}single-entry.txt`, 'utf8', (error, data) => {
     // Get rid of EOF newline
     entry.pop();
 
-    // We don't need the blank line for anything, get rid of it.
-    entry.pop();
+    const frames = chunkEntryIntoFrames(entry);
 
-    const frames = [];
-
-    for(let i = 0; i < NUM_FRAMES_IN_ENTRY; i++) {
-        const frame = spliceLeadingFrame(entry);
-        frames.push(frame);
-    }
+    frames.forEach(displayFrame);
 });
-
