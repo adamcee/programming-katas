@@ -1,7 +1,5 @@
 fs = require('fs');
 
-console.log('hello world'); // TODO - delete
-
 const DATA_DIR = './data/'
 const VALID_DATA_DIR = `${DATA_DIR}valid/`;
 
@@ -10,7 +8,7 @@ fs.readFile(`${VALID_DATA_DIR}single-entry.txt`, 'utf8', (error, data) => {
         return console.log('Error reading file: ', error);
     }
 
-    console.log(data);
+    //console.log(data);
 
     /**
      *
@@ -25,6 +23,12 @@ fs.readFile(`${VALID_DATA_DIR}single-entry.txt`, 'utf8', (error, data) => {
         // Convert each line of text into an array of characters
         .map(row => Array.from(row));
 
+    rawOCRRows.forEach((r, i) => {
+        console.log('row ' + (i+1));
+        console.log(r);
+    })
+
+    console.log('Number of lines in entry', rawOCRRows.length);
     console.log(rawOCRRows);
 
     // Break rawOCR data into "lines" - a "line" is composed of 3 rows.
@@ -44,8 +48,8 @@ fs.readFile(`${VALID_DATA_DIR}single-entry.txt`, 'utf8', (error, data) => {
 
     // Test getting a single line
     lines.push(getLine(rawOCRRows));
-    console.log('lines');
-    console.log(lines);
+    //console.log('lines');
+    //console.log(lines);
 
     // TODO: Put all these piece together and read a whole entry and properly convert/parse it.
 });
