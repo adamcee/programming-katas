@@ -1,56 +1,55 @@
 fs = require('fs');
+const {
+    isZero,
+    isOne,
+    isTwo,
+    isThree,
+    isFour,
+    isFive,
+    isSix,
+    isSeven,
+    isEight,
+    isNine,
+} = require('../src/frame-comparisons.js');
 
 const DATA_DIR = './data/'
 const VALID_DATA_DIR = `${DATA_DIR}valid/`;
+
+/**
+ * THIS FUNCTION HAS DESTRUCTIVE SIDE EFFECTS on `entry`.
+ *
+ * @param {Entry} entry
+ * @return {Frame}
+ *         Get a frame (3x3 array of characters) from our rows of data
+ */
+function spliceLeadingFrame(entry) {
+    return entry.map(row => row.splice(0,3));
+}
+
+const NUM_FRAMES_IN_ENTRY = 9;
 
 fs.readFile(`${VALID_DATA_DIR}single-entry.txt`, 'utf8', (error, data) => {
     if(error) {
         return console.log('Error reading file: ', error);
     }
 
-    //console.log(data);
-
-    /**
-     *
-     * Convert string to multidimensional array.
-     * This is the raw data for our frames.
-     * Ordered top to bottom, each array represents a line of OCR data from the file.
-     * Each element in each "row" is a single character
-     */
-    const rawOCRRows = data
-        // Create an array for each line of text
+    // Create an array for each line of text
+    // and convert each line of text into an array of characters.
+    const entry = data
         .split('\n')
-        // Convert each line of text into an array of characters
         .map(row => Array.from(row));
 
-    rawOCRRows.forEach((r, i) => {
-        console.log('row ' + (i+1));
-        console.log(r);
-    })
+    // Get rid of EOF newline
+    entry.pop();
 
-    console.log('Number of lines in entry', rawOCRRows.length);
-    console.log(rawOCRRows);
+    // We don't need the blank line for anything, get rid of it.
+    entry.pop();
 
-    // Break rawOCR data into "lines" - a "line" is composed of 3 rows.
-    const lines = [];
+    const frames = [];
 
-    // NOTE: This is destructive
-    function getLine(entry) {
-        return entry.splice(0,3);
+    for(let i = 0; i < NUM_FRAMES_IN_ENTRY; i++) {
+        const frame = spliceLeadingFrame(entry);
+        frames.push(frame);
     }
-
-    // Check for last line of entry, which is always just whitespace.
-    function isEmptyLine(line) {
-        return (entry.join('').trim().length === 0);
-    }
-
-
-
-    // Test getting a single line
-    lines.push(getLine(rawOCRRows));
-    //console.log('lines');
-    //console.log(lines);
-
-    // TODO: Put all these piece together and read a whole entry and properly convert/parse it.
 });
 

@@ -24,6 +24,10 @@ const {
  *         Returns true if our OCR equals validFrame
  */
 function isValidFrameFor(frame, validFrame) {
+    console.log('frame:');
+    console.log(frame);
+    console.log('validFrame:');
+    console.log(validFrame);
     return JSON.stringify(frame) === JSON.stringify(validFrame)
 }
 
@@ -96,7 +100,11 @@ function isFive(frame) {
  *         Returns true if our OCR equals SIX
  */
 function isSix(frame) {
-    return isValidFrameFor(frame, SIX);
+    const isValid = isValidFrameFor(frame, SIX);
+    if (!isValid) {
+        // do our stuff
+        const isEight = isEight(frame);
+    }
 }
 
 /*
