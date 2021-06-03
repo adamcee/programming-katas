@@ -1,24 +1,12 @@
 fs = require('fs');
 
 const {
-    isZero,
-    isOne,
-    isTwo,
-    isThree,
-    isFour,
-    isFive,
-    isSix,
-    isSeven,
-    isEight,
-    isNine,
-} = require('./frame-comparisons.js');
+    VALID_ENTRY_DATA_PATH,
+} = require('../paths.js');
 
 const {
     chunkEntryIntoFrames,
 } = require('./entry-handler.js');
-
-const DATA_DIR = './data/'
-const VALID_DATA_DIR = `${DATA_DIR}valid/`;
 
 // Helper method. Nicely display a frame.
 function displayFrame(frame){
@@ -26,7 +14,7 @@ function displayFrame(frame){
     console.log(''); // empty line
 }
 
-fs.readFile(`${VALID_DATA_DIR}single-entry.txt`, 'utf8', (error, data) => {
+fs.readFile(`${VALID_ENTRY_DATA_PATH}`, 'utf8', (error, data) => {
     if(error) {
         return console.log('Error reading file: ', error);
     }
